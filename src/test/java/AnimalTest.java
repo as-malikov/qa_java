@@ -1,11 +1,11 @@
 import com.example.Animal;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.junit.MockitoJUnitRunner;
+
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static Constants.AnimalsConstants.*;
 
 public class AnimalTest {
 
@@ -19,10 +19,8 @@ public class AnimalTest {
     @Test
     public void getPredatorReturnList() {
         try {
-            String predator = "Хищник";
-            List<String> expectedDishesList = List.of("Животные", "Птицы", "Рыба");
-            List<String> actuaDisheslList = animal.getFood(predator);
-            assertEquals(expectedDishesList, actuaDisheslList);
+            List<String> actuaDisheslList = animal.getFood(PREDATOR);
+            assertEquals(EXPECTED_PREDATOR_DISHES_LIST, actuaDisheslList);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -31,20 +29,21 @@ public class AnimalTest {
     @Test
     public void getHerbivoreReturnList() {
         try {
-            String herbivore = "Травоядное";
-            List<String> expectedDishesList = List.of("Трава", "Различные растения");
-            List<String> actuaDisheslList = animal.getFood(herbivore);
-            assertEquals(expectedDishesList, actuaDisheslList);
+            List<String> actuaDisheslList = animal.getFood(HERBIVORE);
+            assertEquals(EXPECTED_HERBIVORE_DISHES_LIST, actuaDisheslList);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
 
+    @Test(expected = Exception.class)
+    public void getOtherReturnExeption() throws Exception {
+        animal.getFood(OTHER_KIND_ANIMAL);
+    }
+
     @Test
     public void getFamilyReturnString() {
-        String expectedFamily = "Существует несколько семейств: заячьи, " +
-                "беличьи, мышиные, кошачьи, псовые, медвежьи, куньи";
         String actualFamily = animal.getFamily();
-        assertEquals(expectedFamily, actualFamily);
+        assertEquals(EXPECTED_FAMILY, actualFamily);
     }
 }

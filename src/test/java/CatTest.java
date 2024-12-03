@@ -10,6 +10,8 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.List;
 
+import static Constants.AnimalsConstants.EXPECTED_PREDATOR_DISHES_LIST;
+import static Constants.AnimalsConstants.*;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -27,17 +29,15 @@ public class CatTest {
 
     @Test
     public void getSoundMeow() {
-        String expectedMeow = "Мяу";
         String actualMeow = cat.getSound();
-        assertEquals(expectedMeow, actualMeow);
+        assertEquals(EXPECTED_MEOW, actualMeow);
     }
 
     @Test
     public void getFoodReturnCorrectEatMeat() throws Exception {
-        Mockito.when(feline.eatMeat()).thenReturn(List.of("Животные", "Птицы", "Рыба"));
-        List<String> expectedEatMeatList = List.of("Животные", "Птицы", "Рыба");
-        List<String> actualEatMeatList = cat.getFood();
-        assertEquals(expectedEatMeatList, actualEatMeatList);
+        Mockito.when(feline.eatMeat()).thenReturn(EXPECTED_PREDATOR_DISHES_LIST);
+        List<String> actualGetFoodList = cat.getFood();
+        assertEquals(EXPECTED_PREDATOR_DISHES_LIST, actualGetFoodList);
     }
 
 }
