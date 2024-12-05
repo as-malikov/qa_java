@@ -19,6 +19,11 @@ public class Lion {
         }
     }
 
+    public Lion(Feline feline) {
+        this.feline = feline;
+        this.hasMane = true;
+    }
+
     public int getKittens() {
         return feline.getKittens();
     }
