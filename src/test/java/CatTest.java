@@ -1,6 +1,5 @@
 import com.example.Cat;
 import com.example.Feline;
-import com.example.Predator;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -28,16 +27,15 @@ public class CatTest {
     }
 
     @Test
-    public void getSoundMeow() {
+    public void getSoundMeowTest() {
         String actualMeow = cat.getSound();
         assertEquals(EXPECTED_MEOW, actualMeow);
     }
 
     @Test
-    public void getFoodReturnCorrectEatMeat() throws Exception {
+    public void getFoodReturnCorrectEatMeatTest() throws Exception {
         Mockito.when(feline.eatMeat()).thenReturn(EXPECTED_PREDATOR_DISHES_LIST);
         List<String> actualGetFoodList = cat.getFood();
         assertEquals(EXPECTED_PREDATOR_DISHES_LIST, actualGetFoodList);
     }
-
 }

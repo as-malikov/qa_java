@@ -23,7 +23,7 @@ public class LionTest {
     }
 
     @Test(expected = Exception.class)
-    public void getOtherSexReturnExeption() throws Exception{
+    public void getOtherSexReturnExeption() throws Exception {
         lion = new Lion(feline, OTHER_KIND_ANIMAL);
     }
 

@@ -17,7 +17,7 @@ public class AnimalTest {
     }
 
     @Test
-    public void getPredatorReturnList() {
+    public void getPredatorReturnDishesListTest() {
         try {
             List<String> actuaDisheslList = animal.getFood(PREDATOR);
             assertEquals(EXPECTED_PREDATOR_DISHES_LIST, actuaDisheslList);
@@ -27,7 +27,7 @@ public class AnimalTest {
     }
 
     @Test
-    public void getHerbivoreReturnList() {
+    public void getHerbivoreReturnDishesListTest() {
         try {
             List<String> actuaDisheslList = animal.getFood(HERBIVORE);
             assertEquals(EXPECTED_HERBIVORE_DISHES_LIST, actuaDisheslList);
@@ -37,12 +37,12 @@ public class AnimalTest {
     }
 
     @Test(expected = Exception.class)
-    public void getOtherReturnExeption() throws Exception {
+    public void getOtherReturnExceptionTest() throws Exception {
         animal.getFood(OTHER_KIND_ANIMAL);
     }
 
     @Test
-    public void getFamilyReturnString() {
+    public void getFamilyReturnFamilyTest() {
         String actualFamily = animal.getFamily();
         assertEquals(EXPECTED_FAMILY, actualFamily);
     }

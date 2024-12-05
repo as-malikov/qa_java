@@ -4,21 +4,19 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 
 import static Constants.AnimalsConstants.*;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
-public class LionSexTest {
+public class LionSexParamTest {
 
+    private final String sex;
+    private final boolean hasMane;
     @Mock
     Feline feline;
-    private Lion lion;
-    private String sex;
-    private boolean hasMane;
 
-    public LionSexTest(String sex, boolean hasMane) {
+    public LionSexParamTest(String sex, boolean hasMane) {
         this.sex = sex;
         this.hasMane = hasMane;
     }
@@ -33,7 +31,7 @@ public class LionSexTest {
 
     @Test
     public void doesHaveManeTest() throws Exception {
-        lion = new Lion(feline, sex);
+        Lion lion = new Lion(feline, sex);
         assertEquals(hasMane, lion.doesHaveMane());
     }
 }

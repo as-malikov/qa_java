@@ -14,4 +14,5 @@ public class AnimalsConstants {
     public static final String MALE = "Самец";
     public static final String FEMALE = "Самка";
     public static final int ONE_KITTENS = 1;
+    public static final String CAT_FAMILY = "Кошачьи";
 }
